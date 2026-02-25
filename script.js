@@ -1,180 +1,257 @@
-/* =============================================
-   Sanyukta Chowdhury — Personal Website
-   Interactions & Animations
-   ============================================= */
+/* ============================================================
+   SANYUKTA CHOWDHURY — Portfolio Interactions
+   ============================================================ */
 
-/* --- Navbar: scroll-aware --- */
+'use strict';
+
+/* ── 1. Navbar: scroll-awareness + mobile toggle ──────────── */
 (function initNav() {
-  const nav = document.getElementById('navbar');
+  const nav    = document.getElementById('navbar');
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
   if (!nav) return;
 
+  // Scroll → glass style
   const onScroll = () => {
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    nav.classList.toggle('scrolled', window.scrollY > 50);
   };
-
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // Run on load
+  onScroll();
+
+  // Mobile hamburger
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      // Animate bars → X
+      const bars = toggle.querySelectorAll('span');
+      if (open) {
+        bars[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
+        bars[1].style.cssText = 'opacity:0';
+        bars[2].style.cssText = 'transform:translateY(-7px) rotate(-45deg)';
+      } else {
+        bars.forEach(b => (b.style.cssText = ''));
+      }
+    });
+
+    // Close on link click
+    links.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.querySelectorAll('span').forEach(b => (b.style.cssText = ''));
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 }());
 
-/* --- Smooth scroll for anchor links --- */
+/* ── 2. Smooth scroll for anchor links ───────────────────── */
 (function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 }());
 
-/* --- Scroll-reveal for sections --- */
+/* ── 3. IntersectionObserver scroll-reveal ───────────────── */
 (function initReveal() {
-  // Elements to reveal
-  const targets = [
-    // About section
-    { selector: '.about__visual',        delay: 0 },
-    { selector: '.section__label',       delay: 0.1 },
-    { selector: '.section__title',       delay: 0.15 },
-    { selector: '.about__para',          delay: 0.2 },
-    { selector: '.about__stats',         delay: 0.3 },
-    // Hobbies header
-    { selector: '.section__header',      delay: 0 },
-    // Hobby cards
-    { selector: '.hobby-card',           delay: 0 },
-  ];
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
 
-  // Add reveal class to matching elements
-  targets.forEach(({ selector, delay }) => {
-    document.querySelectorAll(selector).forEach((el, i) => {
-      el.classList.add('reveal');
-      // Stagger cards within the same group
-      if (selector === '.hobby-card' || selector === '.about__para') {
-        el.style.transitionDelay = `${delay + i * 0.09}s`;
-      } else {
-        el.style.transitionDelay = `${delay}s`;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  // Stagger cards in the same grid parent
+  const staggerSelectors = ['.awards-grid', '.skills-grid', '.creative-grid', '.timeline'];
+  staggerSelectors.forEach(sel => {
+    const grid = document.querySelector(sel);
+    if (!grid) return;
+    grid.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.08}s`;
+    });
   });
 
-  // IntersectionObserver
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  items.forEach(el => observer.observe(el));
 }());
 
-/* --- Active nav link on scroll --- */
+/* ── 4. Active nav highlighting on scroll ────────────────── */
 (function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav__link');
+  const links    = document.querySelectorAll('.nav__link:not(.nav__link--cta)');
 
-  const highlightNav = () => {
-    const scrollMid = window.scrollY + window.innerHeight / 2;
-
-    sections.forEach(section => {
-      const top    = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-
-      if (scrollMid >= top && scrollMid < bottom) {
-        navLinks.forEach(link => {
-          link.style.color = '';
-          const href = link.getAttribute('href');
-          if (href === `#${section.id}`) {
-            link.style.color = 'var(--terracotta)';
-          }
-        });
-      }
+  const highlight = () => {
+    const mid = window.scrollY + window.innerHeight * 0.4;
+    let current = '';
+    sections.forEach(s => {
+      if (mid >= s.offsetTop) current = s.id;
+    });
+    links.forEach(link => {
+      const active = link.getAttribute('href') === `#${current}`;
+      link.style.color = active ? 'var(--terracotta)' : '';
     });
   };
 
-  window.addEventListener('scroll', highlightNav, { passive: true });
-  highlightNav();
+  window.addEventListener('scroll', highlight, { passive: true });
+  highlight();
 }());
 
-/* --- Hobby card: subtle parallax tilt on mousemove --- */
-(function initCardTilt() {
-  const cards = document.querySelectorAll('.hobby-card');
-  const MAX_TILT = 6; // degrees
+/* ── 5. Hero canvas — floating orbs ─────────────────────── */
+(function initHeroCanvas() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = [
+    'rgba(196,98,63,',    // terracotta
+    'rgba(200,137,58,',   // amber
+    'rgba(154,89,105,',   // mauve
+    'rgba(223,122,92,',   // coral
+  ];
+
+  let orbs = [];
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function createOrb(i) {
+    return {
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      r:  80 + Math.random() * 180,
+      vx: (Math.random() - .5) * .35,
+      vy: (Math.random() - .5) * .3,
+      color: COLORS[i % COLORS.length],
+      opacity: .04 + Math.random() * .07,
+    };
+  }
+
+  function init() {
+    resize();
+    orbs = Array.from({ length: 9 }, (_, i) => createOrb(i));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    orbs.forEach(o => {
+      // Move
+      o.x += o.vx;
+      o.y += o.vy;
+      // Wrap
+      if (o.x + o.r < 0)  o.x = W + o.r;
+      if (o.x - o.r > W)  o.x = -o.r;
+      if (o.y + o.r < 0)  o.y = H + o.r;
+      if (o.y - o.r > H)  o.y = -o.r;
+      // Draw radial gradient blob
+      const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+      g.addColorStop(0,   o.color + o.opacity + ')');
+      g.addColorStop(0.5, o.color + (o.opacity * .5) + ')');
+      g.addColorStop(1,   o.color + '0)');
+      ctx.beginPath();
+      ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  init();
+  draw();
+  window.addEventListener('resize', () => { resize(); }, { passive: true });
+}());
+
+/* ── 6. Timeline card 3-D tilt (desktop only) ────────────── */
+(function initTilt() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const cards = document.querySelectorAll('.timeline__card, .award-card, .skill-group, .creative-card');
+  const MAX   = 5;
 
   cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect   = card.getBoundingClientRect();
-      const cx     = rect.left + rect.width  / 2;
-      const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) / (rect.width  / 2);
-      const dy     = (e.clientY - cy) / (rect.height / 2);
-      const rotateX = -dy * MAX_TILT;
-      const rotateY =  dx * MAX_TILT;
-
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const cx = r.left + r.width  / 2;
+      const cy = r.top  + r.height / 2;
+      const dx = (e.clientX - cx) / (r.width  / 2);
+      const dy = (e.clientY - cy) / (r.height / 2);
       card.style.transform = `
-        translateY(-8px) scale(1.01)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
+        translateY(-5px)
+        rotateX(${-dy * MAX}deg)
+        rotateY(${dx * MAX}deg)
       `;
-      card.style.transition = 'transform 0.1s linear, box-shadow 0.4s ease';
+      card.style.transition = 'transform .1s linear, box-shadow .36s ease';
     });
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
-      card.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1)';
+      card.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1), box-shadow .38s cubic-bezier(.4,0,.2,1)';
     });
   });
 
-  // Enable perspective on the grid
-  const grid = document.querySelector('.hobbies__grid');
-  if (grid) {
-    grid.style.perspective = '1200px';
-  }
+  // Add perspective to grid parents
+  ['.awards-grid', '.skills-grid', '.creative-grid', '.timeline'].forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.style.perspective = '1200px';
+  });
 }());
 
-/* --- Cursor glow effect (desktop) --- */
+/* ── 7. Skill pill — colour ripple on click ──────────────── */
+(function initSkillPills() {
+  document.querySelectorAll('.skill-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pill.style.transition = 'none';
+      pill.classList.add('skill-pill--active');
+      setTimeout(() => {
+        pill.style.transition = '';
+        pill.classList.remove('skill-pill--active');
+      }, 400);
+    });
+  });
+}());
+
+/* ── 8. Subtle cursor glow (desktop) ─────────────────────── */
 (function initCursorGlow() {
-  if (window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
+  if (window.matchMedia('(pointer: coarse)').matches) return;
 
   const glow = document.createElement('div');
-  glow.style.cssText = `
-    position: fixed;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(circle, rgba(201,107,74,0.07) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    transition: opacity 0.4s ease;
-    mix-blend-mode: multiply;
-  `;
+  Object.assign(glow.style, {
+    position: 'fixed',
+    width: '400px',
+    height: '400px',
+    borderRadius: '50%',
+    pointerEvents: 'none',
+    zIndex: '0',
+    background: 'radial-gradient(circle, rgba(196,98,63,.055) 0%, transparent 65%)',
+    transform: 'translate(-50%,-50%)',
+    mixBlendMode: 'multiply',
+    transition: 'opacity .4s',
+  });
   document.body.appendChild(glow);
 
-  let mx = 0, my = 0;
-  let gx = 0, gy = 0;
-  let raf;
+  let mx = window.innerWidth / 2;
+  let my = window.innerHeight / 2;
+  let gx = mx, gy = my;
 
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-  });
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
-  function animate() {
-    gx += (mx - gx) * 0.08;
-    gy += (my - gy) * 0.08;
-    glow.style.left = `${gx}px`;
-    glow.style.top  = `${gy}px`;
-    raf = requestAnimationFrame(animate);
-  }
-  animate();
+  (function loop() {
+    gx += (mx - gx) * .07;
+    gy += (my - gy) * .07;
+    glow.style.left = gx + 'px';
+    glow.style.top  = gy + 'px';
+    requestAnimationFrame(loop);
+  })();
 }());
