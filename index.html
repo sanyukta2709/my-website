@@ -11,590 +11,298 @@
 </head>
 <body>
 
-  <!-- ── NAVIGATION ─────────────────────────────── -->
-  <nav class="nav" id="navbar">
-    <a href="#hero" class="nav__logo">SC</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="#about"          class="nav__link">About</a></li>
-      <li><a href="#timeline"       class="nav__link">Career</a></li>
-      <li><a href="#achievements"   class="nav__link">Awards</a></li>
-      <li><a href="#skills"         class="nav__link">Skills</a></li>
-      <li><a href="#creative"       class="nav__link">Creative</a></li>
-      <li><a href="#contact"        class="nav__link nav__link--cta">Connect</a></li>
-    </ul>
-  </nav>
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <a href="#hero" class="nav-logo">SC</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#creative">Creative</a></li>
+        <li><a href="#connect" class="nav-cta">Connect</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- ── HERO ───────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <canvas class="hero__canvas" id="heroCanvas"></canvas>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <p  class="hero__eyebrow">Redmond, WA · Finance</p>
-      <h1 class="hero__name">Sanyukta<br /><em>Chowdhury</em></h1>
-      <p  class="hero__title">Finance Leader &nbsp;|&nbsp; Planning, Execution &amp; Results</p>
-      <div class="hero__rule"></div>
-      <p  class="hero__tagline">&ldquo;Where numbers meet nuance &mdash; a finance mind with an artist&rsquo;s soul&rdquo;</p>
-      <div class="hero__ctas">
-        <a href="#timeline" class="btn btn--primary">View My Work</a>
-        <a href="#contact"  class="btn btn--ghost">Connect with Me</a>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Finance Leader &nbsp;&middot;&nbsp; Redmond, WA</p>
+      <h1 class="hero-name">Sanyukta<br><span>Chowdhury</span></h1>
+      <p class="hero-title">Finance Leader &nbsp;|&nbsp; Planning, Execution &amp; Results</p>
+      <p class="hero-tagline">Where numbers meet nuance &mdash; a finance mind with an artist&rsquo;s soul</p>
+      <div class="hero-buttons">
+        <a href="#career" class="btn btn-primary">View My Work</a>
+        <a href="#connect" class="btn btn-outline">Connect With Me</a>
       </div>
     </div>
-    <a href="#about" class="hero__scroll-arrow" aria-label="Scroll down">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"/>
-      </svg>
-    </a>
   </section>
 
-  <!-- ── ABOUT ──────────────────────────────────── -->
-  <section class="about section" id="about">
+  <!-- ABOUT -->
+  <section class="section bg-alt" id="about">
     <div class="container">
-      <div class="about__grid">
-
-        <!-- Left: portrait + values -->
-        <div class="about__left reveal">
-          <div class="portrait-wrap">
-            <div class="portrait-blob">
-              <span class="portrait-initials">SC</span>
-            </div>
-            <div class="portrait-badge">
-              <span class="portrait-badge__num">15+</span>
-              <span class="portrait-badge__label">Years of Impact</span>
-            </div>
-          </div>
-
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Strategic Finance Leader<br><em>with a Creative Edge</em></h2>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>
+            Strategic finance leader with 15+ years of experience across infrastructure,
+            cloud, and customer success at Microsoft, Amazon AWS, and Expedia. Expert in
+            FP&amp;A, controllership, cost optimization, and revenue strategy.
+          </p>
+          <p>
+            I bring together analytical rigor and creative thinking to drive complex
+            financial decisions at scale. From launching new revenue metrics to managing
+            billion-dollar CapEx portfolios, I show up with curiosity, structure, and
+            relentless focus on outcomes.
+          </p>
           <div class="values-row">
-            <div class="value-chip">
-              <span class="value-chip__icon">&#9733;</span>
-              Growth Mindset
-            </div>
-            <div class="value-chip">
-              <span class="value-chip__icon">&#9672;</span>
-              Curiosity
-            </div>
-            <div class="value-chip">
-              <span class="value-chip__icon">&#9788;</span>
-              Optimism
-            </div>
-          </div>
-
-          <div class="social-proof">
-            <p class="social-proof__heading">What colleagues say</p>
-            <ul class="social-proof__list">
-              <li>Sincere &amp; approachable</li>
-              <li>Helpful &amp; kind</li>
-              <li>Organised &amp; result-oriented</li>
-            </ul>
+            <span class="value-tag">Growth Mindset</span>
+            <span class="value-tag">Curiosity</span>
+            <span class="value-tag">Optimism</span>
           </div>
         </div>
-
-        <!-- Right: text -->
-        <div class="about__right">
-          <span class="section__label reveal">About Me</span>
-          <h2 class="section__title reveal">Strategic Finance Leader<br /><em>with a Creative Edge</em></h2>
-
-          <p class="about__para reveal">
-            With over 15 years of experience spanning infrastructure, cloud, and customer-success finance,
-            I bring a rare combination of analytical rigour and creative problem-solving to every organisation
-            I serve. My career has taken me across some of the world&rsquo;s most admired companies &mdash;
-            <strong>Microsoft, Amazon AWS, Expedia, UBS,</strong> and <strong>Tata Consultancy Services</strong> &mdash;
-            building deep expertise in FP&amp;A, controllership, cost optimisation, and revenue strategy.
-          </p>
-          <p class="about__para reveal">
-            I believe the best financial decisions live at the intersection of data and imagination.
-            Whether I&rsquo;m designing a new revenue metric, leading a multi-hundred-million-dollar
-            CapEx portfolio, or mentoring a cross-functional team, I show up with the same energy:
-            curious, structured, and relentlessly focused on outcomes.
-          </p>
-
-          <div class="edu-cards reveal">
-            <div class="edu-card">
-              <div class="edu-card__icon">&#127979;</div>
-              <div>
-                <p class="edu-card__degree">MBA</p>
-                <p class="edu-card__school">Foster School of Business, University of Washington</p>
-              </div>
-            </div>
-            <div class="edu-card">
-              <div class="edu-card__icon">&#128187;</div>
-              <div>
-                <p class="edu-card__degree">B.E. — Computer Science</p>
-                <p class="edu-card__school">Regional Engineering College, India</p>
-              </div>
-            </div>
+        <div class="about-education">
+          <h3 class="edu-heading">Education</h3>
+          <div class="edu-item">
+            <div class="edu-degree">MBA</div>
+            <div class="edu-school">Foster School of Business<br>University of Washington</div>
           </div>
-
-          <div class="strengths reveal">
-            <p class="strengths__heading">Trademark Strengths</p>
-            <div class="strengths__pills">
-              <span class="pill">Creative Thinking</span>
-              <span class="pill">Problem-Solving</span>
-              <span class="pill">Analytical Depth</span>
-              <span class="pill">Executive Communication</span>
-              <span class="pill">Change Leadership</span>
-            </div>
+          <div class="edu-divider"></div>
+          <div class="edu-item">
+            <div class="edu-degree">B.E. &mdash; Computer Science</div>
+            <div class="edu-school">Regional Engineering College<br>India</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── CAREER TIMELINE ────────────────────────── -->
-  <section class="timeline-section section" id="timeline">
+  <!-- CAREER -->
+  <section class="section" id="career">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__label">Experience</span>
-        <h2 class="section__title">Career <em>Timeline</em></h2>
-        <p class="section__sub">15+ years across technology and finance — from Bangalore to Redmond.</p>
-      </div>
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Career <em>Timeline</em></h2>
 
       <div class="timeline">
-        <div class="timeline__spine"></div>
 
-        <!-- 1. Microsoft Customer Success -->
-        <div class="timeline__item reveal" data-side="right">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">Microsoft Corporation</span>
-                <span class="tl-location">Redmond, WA</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Microsoft Corporation</div>
+                <div class="timeline-role">Group Finance Manager, Customer Success</div>
               </div>
-              <span class="tl-date">Feb 2021 – Present</span>
+              <div class="timeline-date">Feb 2021 &ndash; Present</div>
             </div>
-            <h3 class="tl-role">Group Finance Manager, Customer Success</h3>
-            <ul class="tl-bullets">
-              <li>Lead revenue planning for Microsoft&rsquo;s global Support business, driving strategic decisions across a <strong>~$7B revenue</strong> portfolio.</li>
-              <li>Launched the <strong>&ldquo;Unified Consumed Revenue&rdquo;</strong> metric, creating a single source of truth for customer-success finance.</li>
-              <li>Drove COGS controllership across a <strong>$0.5B+</strong> cost portfolio, identifying &amp; realising material savings.</li>
-              <li>Launched the <strong>&ldquo;Job 2 for Unified&rdquo;</strong> programme, embedding a growth-and-retention lens into every planning cycle.</li>
-              <li>Surfaced conferencing tool inefficiencies; led decommissioning resulting in <strong>~$2M savings</strong>.</li>
+            <ul class="timeline-bullets">
+              <li>Lead revenue planning for Microsoft&rsquo;s global Support business, driving strategic decisions across a ~$7B revenue portfolio</li>
+              <li>Launched the &ldquo;Unified Consumed Revenue&rdquo; metric, creating a single source of truth for customer-success finance</li>
+              <li>Drove COGS controllership across a $0.5B+ cost portfolio; identified conferencing tool inefficiencies resulting in ~$2M savings</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">Revenue Planning</span>
-              <span class="tl-tag">COGS Controllership</span>
-              <span class="tl-tag">Metric Design</span>
-            </div>
           </div>
         </div>
 
-        <!-- 2. Microsoft Stores -->
-        <div class="timeline__item reveal" data-side="left">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">Microsoft Stores</span>
-                <span class="tl-location">Redmond, WA</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Microsoft Stores</div>
+                <div class="timeline-role">Senior Financial Manager</div>
               </div>
-              <span class="tl-date">Feb 2020 – Jun 2021</span>
+              <div class="timeline-date">Feb 2020 &ndash; Jun 2021</div>
             </div>
-            <h3 class="tl-role">Senior Financial Manager</h3>
-            <ul class="tl-bullets">
-              <li>Owned end-to-end close and forecasting for retail inventory across global Microsoft Store locations.</li>
-              <li>Key contributor to the <strong>D365 migration</strong>, modernising financial systems and improving data integrity.</li>
-              <li>Earned the Microsoft EDM quarterly <strong>&ldquo;Protect&rdquo;</strong> award for contribution to eCompany store process improvements.</li>
+            <ul class="timeline-bullets">
+              <li>End-to-end close and forecasting for retail inventory across global Microsoft Store locations</li>
+              <li>Key contributor to the D365 migration, modernizing financial systems and improving data integrity</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">Close &amp; Forecasting</span>
-              <span class="tl-tag">D365</span>
-              <span class="tl-tag">Inventory Finance</span>
-            </div>
           </div>
         </div>
 
-        <!-- 3. Amazon AWS -->
-        <div class="timeline__item reveal" data-side="right">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">Amazon Web Services</span>
-                <span class="tl-location">Seattle, WA</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Amazon Web Services</div>
+                <div class="timeline-role">Senior Financial Analyst, Network Finance</div>
               </div>
-              <span class="tl-date">Jan 2019 – Feb 2020</span>
+              <div class="timeline-date">Jan 2019 &ndash; Feb 2020</div>
             </div>
-            <h3 class="tl-role">Senior Financial Analyst, Network Finance</h3>
-            <ul class="tl-bullets">
-              <li>Controllership and forecasting for a <strong>$1.8B+</strong> global network CapEx portfolio.</li>
-              <li>Built automation tooling for accrual processes, significantly reducing manual effort and error rates.</li>
-              <li>Authored useful-life analysis that directly influenced AWS depreciation strategy and asset management policy.</li>
+            <ul class="timeline-bullets">
+              <li>Controllership and forecasting for $1.8B+ global network CapEx portfolio</li>
+              <li>Built automation tooling for accrual processes, reducing manual effort and error rates</li>
+              <li>Authored useful-life analysis that directly influenced AWS depreciation strategy</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">CapEx</span>
-              <span class="tl-tag">Automation</span>
-              <span class="tl-tag">Depreciation Strategy</span>
-            </div>
           </div>
         </div>
 
-        <!-- 4. Expedia -->
-        <div class="timeline__item reveal" data-side="left">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">Expedia, Inc.</span>
-                <span class="tl-location">Bellevue, WA</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Expedia, Inc.</div>
+                <div class="timeline-role">Manager, FP&amp;A</div>
               </div>
-              <span class="tl-date">Nov 2015 – Dec 2018</span>
+              <div class="timeline-date">Nov 2015 &ndash; Dec 2018</div>
             </div>
-            <h3 class="tl-role">Manager, FP&amp;A</h3>
-            <ul class="tl-bullets">
-              <li>CapEx/OpEx controllership for the global IT portfolio; partnered with engineering and infrastructure teams.</li>
-              <li>Led annual budgeting for a <strong>600+ headcount</strong> technology organisation.</li>
-              <li>Implemented a new IT cost-allocation methodology, improving transparency and business-unit accountability.</li>
+            <ul class="timeline-bullets">
+              <li>CapEx/OpEx controllership for the global IT portfolio</li>
+              <li>Led annual budgeting for a 600+ headcount technology organization</li>
+              <li>Implemented new IT cost-allocation methodology improving transparency and accountability</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">FP&amp;A</span>
-              <span class="tl-tag">Cost Allocation</span>
-              <span class="tl-tag">Headcount Planning</span>
-            </div>
           </div>
         </div>
 
-        <!-- 5. UBS -->
-        <div class="timeline__item reveal" data-side="right">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">UBS</span>
-                <span class="tl-location">Stamford, CT</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">UBS</div>
+                <div class="timeline-role">Consultant / PMO</div>
               </div>
-              <span class="tl-date">Feb 2008 – Oct 2015</span>
+              <div class="timeline-date">Feb 2008 &ndash; Oct 2015</div>
             </div>
-            <h3 class="tl-role">Consultant / PMO</h3>
-            <ul class="tl-bullets">
-              <li>Managed a <strong>$70M</strong> IT portfolio, providing financial oversight, risk management, and executive reporting.</li>
-              <li>Served as PMO lead across multiple concurrent technology investment programmes.</li>
+            <ul class="timeline-bullets">
+              <li>Managed a $70M IT portfolio with financial oversight, risk management, and executive reporting</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">Portfolio Management</span>
-              <span class="tl-tag">PMO</span>
-              <span class="tl-tag">Financial Services</span>
-            </div>
           </div>
         </div>
 
-        <!-- 6. TCS -->
-        <div class="timeline__item reveal" data-side="left">
-          <div class="timeline__dot">
-            <div class="timeline__dot-inner"></div>
-          </div>
-          <div class="timeline__card">
-            <div class="timeline__card-head">
-              <div class="timeline__card-meta">
-                <span class="tl-company">Tata Consultancy Services</span>
-                <span class="tl-location">India / USA</span>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Tata Consultancy Services</div>
+                <div class="timeline-role">IT Analyst</div>
               </div>
-              <span class="tl-date">Mar 2003 – Jan 2008</span>
+              <div class="timeline-date">Mar 2003 &ndash; Jan 2008</div>
             </div>
-            <h3 class="tl-role">IT Analyst</h3>
-            <ul class="tl-bullets">
-              <li>GE Financial Insurance — enterprise systems delivery.</li>
-              <li>Bear Stearns — IT equities platform support for a <strong>$20M</strong> portfolio.</li>
-              <li>CVS Pharmacy — technology project delivery for a <strong>100+ headcount</strong> programme.</li>
+            <ul class="timeline-bullets">
+              <li>GE Financial Insurance &mdash; enterprise systems delivery</li>
+              <li>Bear Stearns &mdash; IT equities platform for a $20M portfolio</li>
+              <li>CVS Pharmacy &mdash; technology delivery for a 100+ headcount program</li>
             </ul>
-            <div class="tl-tags">
-              <span class="tl-tag">IT Delivery</span>
-              <span class="tl-tag">Financial Services</span>
-              <span class="tl-tag">Client Management</span>
-            </div>
           </div>
         </div>
 
-      </div><!-- /.timeline -->
+      </div>
     </div>
   </section>
 
-  <!-- ── ACHIEVEMENTS ───────────────────────────── -->
-  <section class="achievements section" id="achievements">
+  <!-- AWARDS -->
+  <section class="section bg-alt" id="awards">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__label">Recognition</span>
-        <h2 class="section__title">Key Achievements <em>&amp; Awards</em></h2>
-      </div>
-
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards <em>&amp; Achievements</em></h2>
       <div class="awards-grid">
-
-        <div class="award-card reveal">
-          <div class="award-card__icon">&#127942;</div>
-          <h3 class="award-card__title">WW MCAPS Finance Awards</h3>
-          <p class="award-card__body">
-            Multiple awards recognising excellence in complex planning execution,
-            controllership, and COGS savings across Microsoft&rsquo;s worldwide
-            customer-facing finance organisation.
-          </p>
-          <span class="award-card__badge">Microsoft</span>
+        <div class="award-card">
+          <div class="award-title">WW MCAPS Finance Awards</div>
+          <div class="award-org">Microsoft</div>
+          <p class="award-desc">Multiple awards for complex planning execution, controllership excellence, and COGS savings across Microsoft&rsquo;s worldwide customer-facing finance organization.</p>
         </div>
-
-        <div class="award-card reveal">
-          <div class="award-card__icon">&#11088;</div>
-          <h3 class="award-card__title">Gold Star Award</h3>
-          <p class="award-card__body">
-            Awarded for exceptional forecast accuracy with a variance of
-            <strong>&lt;5%</strong> and outstanding business-partnership excellence,
-            demonstrating the measurable impact of rigorous financial discipline.
-          </p>
-          <span class="award-card__badge">Internal Award</span>
+        <div class="award-card">
+          <div class="award-title">Expedia Finance Award</div>
+          <div class="award-org">Expedia, Inc.</div>
+          <p class="award-desc">Recognized for implementing the IT cost-allocation model and leading a restatement process that improved transparency and accuracy across the global technology portfolio.</p>
         </div>
-
-        <div class="award-card reveal">
-          <div class="award-card__icon">&#127881;</div>
-          <h3 class="award-card__title">Expedia Finance Award</h3>
-          <p class="award-card__body">
-            Recognised for spearheading the implementation of the IT cost-allocation
-            model and leading a complex restatement process that improved transparency
-            and accuracy across the global technology portfolio.
-          </p>
-          <span class="award-card__badge">Expedia</span>
+        <div class="award-card">
+          <div class="award-title">Gold Star Award</div>
+          <div class="award-org">Internal Recognition</div>
+          <p class="award-desc">Awarded for exceptional forecast accuracy with variance under 5% and outstanding business partnership excellence.</p>
         </div>
-
-        <div class="award-card reveal">
-          <div class="award-card__icon">&#128737;</div>
-          <h3 class="award-card__title">EDM &ldquo;Protect&rdquo; Award</h3>
-          <p class="award-card__body">
-            Microsoft quarterly award for exceptional contribution to updating
-            eCompany store processes, safeguarding financial integrity and operational
-            continuity during a period of significant retail transformation.
-          </p>
-          <span class="award-card__badge">Microsoft</span>
-        </div>
-
-        <div class="award-card award-card--wide reveal">
-          <div class="award-card__icon">&#128200;</div>
-          <h3 class="award-card__title">~$7B Revenue Portfolio &amp; $2M Cost Savings</h3>
-          <p class="award-card__body">
-            Currently driving revenue planning for Microsoft&rsquo;s Support business — a
-            global portfolio of approximately <strong>$7 billion</strong>. Simultaneously
-            identified and led the decommissioning of a high-cost conferencing tooling estate,
-            delivering approximately <strong>$2 million in annual savings</strong>.
-          </p>
-          <span class="award-card__badge">Impact</span>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── SKILLS ─────────────────────────────────── -->
-  <section class="skills-section section" id="skills">
+  <!-- SKILLS -->
+  <section class="section" id="skills">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__label">Expertise</span>
-        <h2 class="section__title">Skills &amp; <em>Capabilities</em></h2>
-      </div>
-
+      <div class="section-label">Expertise</div>
+      <h2 class="section-title">Skills <em>&amp; Capabilities</em></h2>
       <div class="skills-grid">
-
-        <div class="skill-group reveal">
-          <div class="skill-group__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="20" width="5" height="9" rx="1"/><rect x="11" y="14" width="5" height="15" rx="1"/>
-              <rect x="19" y="7" width="5" height="22" rx="1"/><polyline points="3 12 11 6 19 10 27 3"/>
-            </svg>
-          </div>
-          <h3 class="skill-group__title">Financial</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">FP&amp;A</span>
-            <span class="skill-pill">Revenue Planning</span>
-            <span class="skill-pill">CapEx / OpEx Controllership</span>
-            <span class="skill-pill">Cost Optimisation</span>
-            <span class="skill-pill">Forecasting</span>
-            <span class="skill-pill">Budgeting</span>
-          </div>
+        <div class="skill-card">
+          <div class="skill-category">Financial</div>
+          <ul class="skill-list">
+            <li>FP&amp;A</li>
+            <li>Revenue Planning</li>
+            <li>CapEx / OpEx Controllership</li>
+            <li>Cost Optimization</li>
+            <li>Forecasting</li>
+            <li>Budgeting</li>
+          </ul>
         </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="16" cy="10" r="5"/><path d="M6 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/>
-              <path d="M26 12l3 3-3 3"/><path d="M6 12l-3 3 3 3"/>
-            </svg>
-          </div>
-          <h3 class="skill-group__title">Strategic</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Executive Reporting</span>
-            <span class="skill-pill">Business Partnering</span>
-            <span class="skill-pill">KPI Design</span>
-            <span class="skill-pill">Rhythm of Business</span>
-            <span class="skill-pill">Metric Architecture</span>
-          </div>
+        <div class="skill-card">
+          <div class="skill-category">Strategic</div>
+          <ul class="skill-list">
+            <li>Executive Reporting</li>
+            <li>Business Partnering</li>
+            <li>KPI Design</li>
+            <li>Rhythm of Business</li>
+            <li>Metric Architecture</li>
+          </ul>
         </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="28" height="22" rx="2"/>
-              <path d="M10 28h12M16 26v2"/><path d="M8 12l4 4-4 4"/><path d="M16 19h6"/>
-            </svg>
-          </div>
-          <h3 class="skill-group__title">Technical</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Microsoft D365</span>
-            <span class="skill-pill">Financial Modelling</span>
-            <span class="skill-pill">Process Automation</span>
-            <span class="skill-pill">Data Analytics</span>
-            <span class="skill-pill">Excel / Power BI</span>
-          </div>
+        <div class="skill-card">
+          <div class="skill-category">Technical</div>
+          <ul class="skill-list">
+            <li>Microsoft D365</li>
+            <li>Financial Modeling</li>
+            <li>Process Automation</li>
+            <li>Data Analytics</li>
+            <li>Excel / Power BI</li>
+          </ul>
         </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="16" cy="8" r="4"/><circle cx="6" cy="22" r="4"/><circle cx="26" cy="22" r="4"/>
-              <path d="M16 12v4M16 16l-6.5 6M16 16l6.5 6"/>
-            </svg>
-          </div>
-          <h3 class="skill-group__title">Leadership</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Cross-functional Teams</span>
-            <span class="skill-pill">Vendor Management</span>
-            <span class="skill-pill">Team Development</span>
-            <span class="skill-pill">Stakeholder Alignment</span>
-            <span class="skill-pill">Change Management</span>
-          </div>
+        <div class="skill-card">
+          <div class="skill-category">Leadership</div>
+          <ul class="skill-list">
+            <li>Cross-functional Collaboration</li>
+            <li>Vendor Management</li>
+            <li>Team Development</li>
+            <li>Stakeholder Alignment</li>
+            <li>Change Management</li>
+          </ul>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── CREATIVE SIDE ───────────────────────────── -->
-  <section class="creative section" id="creative">
+  <!-- CREATIVE -->
+  <section class="section bg-alt" id="creative">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__label">Beyond Work</span>
-        <h2 class="section__title">The Creative <em>Side</em></h2>
-        <p class="section__sub">The interests that spark joy, restore balance, and quietly fuel better thinking at work.</p>
-      </div>
-
+      <div class="section-label">Beyond Work</div>
+      <h2 class="section-title">The Creative <em>Side</em></h2>
+      <p class="creative-intro">The interests that restore balance and quietly fuel better thinking at work.</p>
       <div class="creative-grid">
-
-        <div class="creative-card reveal" data-i="0">
-          <div class="creative-card__bg creative-card__bg--music"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 30V12l18-4v18"/><circle cx="9" cy="30" r="5"/><circle cx="27" cy="26" r="5"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Music</h3>
-          <p class="creative-card__desc">Melodies that move the soul.</p>
-        </div>
-
-        <div class="creative-card reveal" data-i="1">
-          <div class="creative-card__bg creative-card__bg--painting"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 32 L24 8 L30 14 L18 38 Z"/><circle cx="30" cy="14" r="3"/>
-              <path d="M8 30l4-2"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Painting</h3>
-          <p class="creative-card__desc">Colours as a window to inner worlds.</p>
-        </div>
-
-        <div class="creative-card reveal" data-i="2">
-          <div class="creative-card__bg creative-card__bg--reading"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 10h10c2.5 0 2.5 2.5 2.5 2.5v18s0-2.5-2.5-2.5H8V10Z"/>
-              <path d="M32 10H22c-2.5 0-2.5 2.5-2.5 2.5v18s0-2.5 2.5-2.5h10V10Z"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Reading</h3>
-          <p class="creative-card__desc">Every book a new universe.</p>
-        </div>
-
-        <div class="creative-card reveal" data-i="3">
-          <div class="creative-card__bg creative-card__bg--beach"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="20" cy="14" r="6"/>
-              <path d="M5 30 Q12 20 20 30 Q28 40 35 30"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Beaches</h3>
-          <p class="creative-card__desc">Where the horizon makes the mind exhale.</p>
-        </div>
-
-        <div class="creative-card reveal" data-i="4">
-          <div class="creative-card__bg creative-card__bg--walks"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="20" cy="7" r="4"/>
-              <path d="M17 14l-4 10 6 8"/><path d="M17 14l4 6 6 4"/>
-              <path d="M16 20l6 0"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Long Walks</h3>
-          <p class="creative-card__desc">Moving meditation — best ideas arrive on foot.</p>
-        </div>
-
-        <div class="creative-card reveal" data-i="5">
-          <div class="creative-card__bg creative-card__bg--pilates"></div>
-          <div class="creative-card__icon">
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="20" cy="7" r="4"/>
-              <path d="M12 20 Q20 13 28 20"/><path d="M16 20l-2 14"/><path d="M24 20l2 14"/>
-              <path d="M11 28h18"/>
-            </svg>
-          </div>
-          <h3 class="creative-card__title">Pilates</h3>
-          <p class="creative-card__desc">Strength, grace, and quiet focus.</p>
-        </div>
-
+        <div class="creative-tile">Music</div>
+        <div class="creative-tile">Painting</div>
+        <div class="creative-tile">Reading</div>
+        <div class="creative-tile">Beaches</div>
+        <div class="creative-tile">Long Walks</div>
+        <div class="creative-tile">Pilates</div>
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ────────────────────────────────── -->
-  <section class="contact section" id="contact">
+  <!-- CONNECT / FOOTER -->
+  <footer class="footer" id="connect">
     <div class="container">
-      <div class="contact__inner reveal">
-        <span class="section__label">Get in Touch</span>
-        <h2 class="contact__title">Let&rsquo;s <em>Connect</em></h2>
-        <p class="contact__body">
-          Interested in collaborating, discussing finance strategy, or just saying hello?
-          I&rsquo;d love to hear from you.
-        </p>
-        <div class="contact__actions">
-          <a href="mailto:sanyukta@example.com" class="btn btn--primary">Send an Email</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">LinkedIn Profile</a>
-        </div>
-        <p class="contact__location">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-          Redmond, WA
-        </p>
+      <div class="footer-name">Sanyukta Chowdhury</div>
+      <div class="footer-title">Finance Leader &amp; Creative Soul</div>
+      <div class="footer-contact">
+        <a href="mailto:sanyukta.chowdhury@gmail.com">sanyukta.chowdhury@gmail.com</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">&middot;</span>
+        <span>Redmond, WA</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ─────────────────────────────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <span class="footer__name">Sanyukta Chowdhury</span>
-        <span class="footer__sep">&middot;</span>
-        <span class="footer__tag">Finance Leader &amp; Creative Soul</span>
-        <span class="footer__sep">&middot;</span>
-        <span class="footer__copy">&copy; 2024</span>
-      </div>
+      <div class="footer-copy">&copy; 2024 Sanyukta Chowdhury</div>
     </div>
   </footer>
 
