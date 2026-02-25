@@ -619,23 +619,24 @@ ul {
 .linkedin-btn {
   display: inline-block;
   font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-decoration: none;
-  padding: 14px 36px;
-  border-radius: 4px;
+  padding: 18px 48px;
+  border-radius: 6px;
   background-color: #0A66C2;
-  color: var(--white);
-  border: 2px solid #0A66C2;
-  transition: background 0.22s, border-color 0.22s, transform 0.18s;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 18px rgba(10, 102, 194, 0.45);
+  transition: background-color 0.22s, box-shadow 0.22s, transform 0.18s;
 }
 
 .linkedin-btn:hover {
   background-color: #004182;
-  border-color: #004182;
-  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(10, 102, 194, 0.55);
+  transform: translateY(-3px);
+  color: #ffffff;
 }
 
 .footer-location {
