@@ -30,7 +30,7 @@
 
   --container: 1140px;
   --radius: 16px;
-  --py: clamp(80px, 10vw, 130px);
+  --py: clamp(56px, 7vw, 96px);
 }
 
 /* ── Base ─────────────────────────────────────────────────── */
@@ -226,7 +226,7 @@ ul { list-style: none; }
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,7 +277,7 @@ ul { list-style: none; }
   position: relative;
   z-index: 2;
   max-width: 780px;
-  padding: 48px 24px;
+  padding: 24px 24px;
 }
 
 .hero-eyebrow {
